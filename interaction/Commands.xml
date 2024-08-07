@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<KeyinTree xmlns="http://www.bentley.com/schemas/1.0/MicroStation/AddIn/KeyinTree.xsd">
+
+    <RootKeyinTable ID="root">
+		<Keyword SubtableRef="Commands" CommandWord="Output">
+			<Options Required="true" />
+		</Keyword>
+		<Keyword SubtableRef="Commands2" CommandWord="interaction">
+			<Options Required="true" />
+		</Keyword>
+    </RootKeyinTable>
+
+    <SubKeyinTables>
+		<KeyinTable ID="Commands">
+			<Keyword SubtableRef="FromCmd" CommandWord="Words">
+				<Options Required="true" />
+			</Keyword>
+		</KeyinTable>
+		
+		<KeyinTable ID="Commands2">
+			<Keyword CommandWord="outinform">
+				<Options Required="true" />
+			</Keyword>
+		</KeyinTable>
+
+        <KeyinTable ID="FromCmd">
+          <Keyword CommandWord="Success" />
+        </KeyinTable>
+
+    </SubKeyinTables>
+
+    <KeyinHandlers>
+		<KeyinHandler Keyin="Output Words Success"            Function="interaction.Commands.OutputSuccess"/>
+		<KeyinHandler Keyin="interaction outinform"            Function="interaction.Commands.OutInform"/>   
+    </KeyinHandlers>
+
+</KeyinTree>
+
